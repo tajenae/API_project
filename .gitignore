@@ -1,1 +1,8 @@
-API_KEYS.py
+#ignore my API
+noaa_api_key.txt 
+
+#I've added these as well as they keep randomly pop up in my folder
+__pycache__/
+.cache.sqlite
+.DS_Store
+
