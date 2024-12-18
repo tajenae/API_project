@@ -1,43 +1,33 @@
 import requests
-import json
-from datetime import datetime, timedelta
-from API_KEYS import load_noaa_api_key  
+from API_KEYS import load_noaa_api_key
 
-def load_noaa_data():
-    # loading the NOAA API key from the function created
-    api_key = load_noaa_api_key()
+class NoaaData:
+    #this class will handle NOAA data retrieval and processing as it uses an api key.
 
-    # the given station ID for New york city (NYC)
-    station_id = 'GHCND:USW00094728'
+    def __init__(self, latitude, longitude):
+        self.latitude = latitude
+        self.longitude = longitude
+        self.api_key = load_noaa_api_key()
+        self.url = f"https://api.weather.gov/points/{latitude},{longitude}/forecast"
+#use this function to get the noaa weather data needed. 
+    def fetch_noaa_data(self):
+        headers = {
+            "User-Agent": "NOAA Data" ,
+        }
+        #get request to the noaa api for data i need
+        response = requests.get(self.url, headers=headers)
+        #ensuring that the response is good and returns the data needed 
+        if response.status_code == 200:
+            data = response.json()
+            print("NOAA Data Response:", data)
+            periods = data["properties"]["periods"]
 
-    #requesting a 30 day range of information from the noaa website.
-    end_date = datetime.now()
-    start_date = end_date - timedelta(days=30) 
-    end_date_str = end_date.strftime('%Y-%m-%d')
-    start_date_str = start_date.strftime('%Y-%m-%d')
-
-    #URL
-    url = f'https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=TMAX,TMIN,PRCP&startdate={start_date_str}&enddate={end_date_str}&stationid={station_id}'
-    headers = {'token': api_key}
-
-    # making the API request
-    response = requests.get(url, headers=headers)
-
-    # Handling the response - there were lots of errors and trials in getting the information needed at first. As a lot of the times it 
-    # didnt retrieve any data as my range was too wide for the free plan for collecting information using API's on the Noaa website. 
-    if response.status_code == 200:
-        data = response.json()
-
-        # save the data if results are found
-        if "results" in data and data["results"]:
-            with open('noaa_weather_data_30_days.json', 'w') as f:
-                json.dump(data["results"], f, indent=4)
-            print(f"Weather data saved for the last 30 days ({start_date_str} to {end_date_str}).")
+            #returning the data i will need in this format
+            return {
+                "forecast_times": [p["startTime"] for p in periods],
+                "temperature_max": [p["temperature"] for p in periods],
+                "short_forecasts": [p["shortForecast"] for p in periods],
+            }
         else:
-            print("No results found.")
-    else:
-        print(f"Error: {response.status_code} - {response.text}")
-
-# calling the function needed to fetch the Noaa data
-load_noaa_data()
-
+            print("Error", response.status_code)
+            return None

@@ -1,27 +1,49 @@
 # API_project
-Project: API-Driven Application with OOP and Visualizations
+Project: API-Driven Application with OOP and Visualizations - 
 
-Climate Change Analysis through Weather Data
+Climate Change Api project using through Weather Data from Apis
 
-My project focuses on analyzing weather data over a specific period for a chosen region, and in this case I have focused on the New York region. The primary objective is to identify patterns and trends that could reflect climate changes and to explore how these insights might help in predicting future shifts in climate. To achieve this, I have integrated multiple APIs to gather relevant data the information and store them in separate files.
+This project aims to analyze weather data from APIs and use that data to look at climate change trends. By using the data collected, I was able to calculate yearly weather averages and create graphs to better understand how temperatures have changed over time and what that means for climate change. 
 
-Project Overview
+The data was sourced from:
 
-This project involves retrieving, processing, and visualizing critical weather data, such as temperatures, precipitation, and extreme weather events, recorded over time. The analysis includes cleaning the data, applying object-oriented programming (OOP) principles, and creating visual representations that highlight key findings.
+- NOAA (National Oceanic and Atmospheric Administration) API: This website was only able to provide short-term weather forecasts as there were data limits due to the free subscription plan used. The current weather data is good for analyzing the today’s weather patterns and compare it to historical and future forecasts.
+- Open-Meteo: This website was able to provide historical climate and also forecasts ranging from 1950 to 2050. There were no limits to how much information I could be retrieve. Therefore, despite not having an official API, the weather data from this weather was also used to analysis climate changes. The Meteo data was given via a csv file available on the NOAA official website. The original code for using this data was also provided on the website and I have also included in the project as it proved to be useful in understanding the data.
 
-Data Analysis: I will be generating average temperatures and analyze historical trends spanning several years or decades depending on how nuch historical data I am allowed to retrieve from the API. This will help in visualizing global temperature rises and identifying outliers indicative of extreme weather conditions. Afterwhich, i will make a thorough analysis of the data I retrieved.
+What I used to complete this project:
 
-Data Visualization: Line and bar charts will be used to depict temperature trends, while other visualizations will highlight extreme weather events cases.
+- VS code, json and  Python libraries such as pandas, matplotlib, requests.
+- The API for NOAA data was taken from the NOAA website after signing up, and it is now stored in the noaa_api_key.txt file as I don’t want it to be uploaded on Github.
+- the data for Noaa and Meteo were save in separate files which I have listed below. 
 
-OOP Integration: Classes and methods will be used for data retrieval, trend detection, and visualization in some cases.
+How to run this project:
 
-As required for this project, I have intergrated my chosen APIs from Meteo, NOAA, and WeatherStack. Meteo was used for retrieving historical and NOAA and WeatherStack  were used to fetch current weather data as well as short-term forecasts. Each API contributes unique data which i used for the visualization aspect of the project in order to show the different trends observed. 
+I used VS code for this project and ran many of my requests in the terminal by using my main.py file. This should run the code and show the graphs I created and save any updates to separate files. I then use those graphs to make an analyze of the data, which will be attached in a txt file. The API key needed for NOAA is also included in this submission. I have also attached the graphs just in case they don’t run properly.
 
+Challenges I encountered in completing this project: 
 
-API References
+This project came with a few challenges for me as working with APIs have always seemed more complex than they actually are. Initially I started this project by exploring and experimenting with APIs like WeatherStack and OpenWeather, but their free plans had limitations, such as only providing 7 days of data, which wasn’t enough for meaningful analysis. This led me to switch to NOAA and Open-Meteo, which offered more useful data for me, even though meteo didn’t require the need for an API. Another challenge was understanding the data itself. NOAA temperatures were in Celsius, so I had to convert them to Fahrenheit for better readability as I wasn’t able to really figure out the highs and lows as i normally dont use celsius. 
 
-Meteo API: Open-source API for weather data (no API key required).
+Working with Open-Meteo’s vast dataset (1950 to 2050) was also tricky, as the range was too large to visualize easily. I addressed this by calculating yearly averages to simplify the data and stored it in a separate file than the one that was initially given. For some of the error handling code I had to search online as many times the code wasnt running or would output that the data wasn't available or that the file couldn't be read properly. Additionally, combining data into graphs was tough, especially when filtering and aligning the different datasets as the different factors in climate change such as humidity, precipitation and snow, make the graph far too confusing and jumbled. So finally, I chose to focus on just minimum and maximum temperatures because they were easier to interpret and provided clearer insights into climate trends, so hopefully that will suffice for the needs of this project as I was able to visualize historical temperatures and forecasts using meteo’s min and max temperatures in a better visual way. 
 
-NOAA API: Comprehensive weather and climate data. 
+File included in this project.
+- API_KEYS.py
+	- Handles loading the NOAA API key from a file as I didn’t want the API key to be in the documents I upload on Github. It hides the noaa_api_key.txt
+- data_processing.py:
+	- Contains the WeatherProcessing class to process NOAA and Meteo data.
+- data_visualization.py:
+	- this file has the Visualization class to create the graphs needed.
+- noaa_data.py:
+	- Contains the NoaaData class to fetch NOAA data using the API.
+- main.py:
+	- used to run the project and process the necessary data I needed to show the graphs. 
+- .gitignore:
+	- ensures that my api key isn’t gonna be uploaded to my GitHub.
+	- noaa_weather_data_30_days.json: This was created to store the NOAA weather data given for up to 30 days.
+	- open_meteo_climate_data.csv: This has historical climate data from Open-Meteo’s website.
+    I also include th eoriginal meteo file that was provided on the website as i used it to help with setting up some of the code and also to get a better idea of the data.
 
-WeatherStack API: Reliable weather and climate data provider. 
+Website links: 
+
+- NOAA API: https://www.weather.gov/documentation/services-web-api
+- Open-Meteo API: https://open-meteo.com/ 

@@ -4,6 +4,8 @@ import requests_cache
 import pandas as pd
 from retry_requests import retry
 
+#This is the original code provided by the official Open-meteo website.
+
 # Using openmetro to fetch historical data, the website indicated there are no Api key needed. 
 # Setup the Open-Meteo API client with cache and retry on error
 cache_session = requests_cache.CachedSession('.cache', expire_after = 3600)
