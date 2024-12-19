@@ -10,6 +10,7 @@ class Visualization:
         plt.ylabel("Temp (°F)")
         plt.show()
 
+    #create a line graph for meteo data to better analyze the weather trends
     def plot_meteo_yearly_averages(self, meteo_file):
         #i will plot only the averages as the yearly data is way too much to fit on the graph
         meteo_data = pd.read_csv(meteo_file)

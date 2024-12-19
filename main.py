@@ -10,7 +10,9 @@ class Weather:
         self.data_processor = WeatherProcessing()
 
     def open_weather_data(self):
-        # process the data from NOAA using the json file which i have saved all the data from the api in - retrieved from the website usign the api key they gave me when i signed up
+        # process the data from NOAA using the json file which i have saved all the data 
+        # from the api in - retrieved from the website usign the api key they gave me when i signed up
+        #this website didnt give lots of data but it still worked pretty well.
         try:
             with open("noaa_weather_data_30_days.json", "r") as file:
                 noaa_data = json.load(file)
@@ -18,9 +20,9 @@ class Weather:
             if not processed_noaa_data.empty:
                 self.visualization.plot_noaa_data(processed_noaa_data)
         except Exception as e: 
-            print(f"Error with NOAA data: {e}")
+            print(f"Error with NOAA data: {e}") 
 
-        # next up is to get the data from the meteo cvs, this one did not require an api key, so the csv file given was used. 
+        # next up is to get the data from the meteo cvs, meteo did not require an api key, so the csv file given was used. 
         try:
             self.data_processor.meteo_yearly_averages(
                 "open_meteo_climate_data.csv", "open_meteo_yearly_averages.csv"

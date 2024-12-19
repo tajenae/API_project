@@ -1,23 +1,24 @@
-Brief analysis on how this project ties in with Climate Change - obseravtions and insights.
+Brief analysis on how this project ties in with Climate Change - obseravtions and insights from the data.
 
 This project gave me a hands on look at how weather data can reveal patterns tied to climate change, 
 something which I feel very passionate about. So for this analysis, I have used the graphs as well as the data 
-from the csv file and the additional info provided on each website which helped me to analysis the data I was working 
+from the csv file and the additional info provided on each website which helped me to understand the data I was working 
 with and what that data meant. 
 
 For NOAA data, I noticed fluctuations in temperatures, like a dip from November 21 to 23, 2024, which could indicate 
-local weather events or seasonal shifts. I used this current observation to make sense of how the weather looked in the 
-past and how it might look in  the future as well and what this might mean for the world. The daily variations from NOAA 
-are aligned with what I observed when I also looked at the meteo data. 
+local weather events or seasonal shifts. I used this current observation to make sense of how the weather looked in the past
+few decades and how it might look in the future as well and what this might mean for the world. 
 
  As meteo provided historic data with no limits compared to noaa, I observed that the maximum temperatures hovered around 
  the 55°F line in the 1950s but have risen to an average of around 58°F between the decades of 2000-2020, with a sharp dip 
- in 2016 dropping below around 54°F. Looking ahead, projections from 2020-2040 suggest many highs will probably exceed 60°F, 
- showing a clear warming trend. Minimum temperatures have followed a similar path, gradually increasing since 1950, with occasional 
+ in the year 2016 dropping down to around 54°F. Looking ahead, projections from 2020-2040 suggest many highs will probably exceed 60°F, 
+ showing a clear warming trend. And the daily variations from NOAA are aligned with what I observed when I also looked at the meteo data. 
+ Also the minimum temperatures have followed a similar path, gradually increasing since 1950, with occasional 
  dips like those around 1980s and late 1990s. These rising temperatures both minimum and maximum fit into the broader narrative of 
- climate change driven by global warming. Seeing these patterns on the graphs helped me connect the data to real-world climate concerns. 
-
-One hopeful takeaway from this project is that by looking at how temperatures have changed over time, we can better understand t
-he impact of climate change and take action to address. And hopefully, by making positive changes like embracing renewable energy, 
+ climate change driven by global warming. 
+ 
+ Seeing these patterns on the graphs helped me connect the data to real-world climate concerns. 
+ And so one hopeful takeaway from this project is that by looking at how temperatures have changed over time, we can better understand 
+ the impact of climate change and take action to address it. And hopefully, by making positive changes like embracing renewable energy, 
 reducing pollution and prioritizing earth’s resources, we can create a more sustainable planet for future generations and even for 
 our future selves.
